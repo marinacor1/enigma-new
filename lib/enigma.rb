@@ -2,11 +2,11 @@ class Engima
 
   def initialize
     @key = KeyGenerator.new
-    @offset_calculator = Offset.new
+    @offsets = Offset.new
   end
 
   def encrypt(message)
-    @encryption = Encrypt.new(message)
+    @encryption = Encrypt.new(message, @offsets)
   end
 
   def decrypt(output)
