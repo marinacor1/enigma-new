@@ -11,7 +11,7 @@ class KeyGeneratorTest < MiniTest::Test
   end
 
   def test_each_key_is_five_digits
-    keyg = KeyGenerator.new
-    assert_equal 5, keyg.key.length
+    keygenerator = KeyGenerator.new
+    assert_equal 5, keygenerator.key.length
   end
 end
