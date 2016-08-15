@@ -8,7 +8,7 @@ class Encrypt
   def convert_message(message)
     letters = message.chars
     converted_message = letters.map do |letter|
-      letters.index(letter)
+      character_map.index(letter)
     end
   end
 
