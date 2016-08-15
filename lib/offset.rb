@@ -5,6 +5,7 @@ class Offset
     @time = Time.now.strftime('%d%m%y').to_i
     last_four_digits = create_offset
     organize_offsets(last_four_digits)
+    offsets_to_string(last_four_digits)
   end
 
   def create_offset
@@ -17,6 +18,10 @@ class Offset
     @b_offset = last_four_digits[1]
     @c_offset = last_four_digits[2]
     @d_offset = last_four_digits[3]
+  end
+
+  def offsets_to_string(last_four_digits)
+    last_four_digits.to_s
   end
 
 
