@@ -1,5 +1,7 @@
 require 'pry'
+require_relative 'character_map'
 class Encrypt
+  include CharacterMap
   attr_accessor :converted, :encrypted
 
   def initialize(message, offsets)
@@ -13,13 +15,6 @@ class Encrypt
     converted_message = letters.map do |letter|
       character_map.index(letter)
     end
-  end
-
-  def character_map
-    ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
-    'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
-    'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3',
-    '4', '5', '6', '7', '8', '9', ' ', '.', ',']
   end
 
   def rotate_message(offsets) #[7, 4, 11, 11, 14]

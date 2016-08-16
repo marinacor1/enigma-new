@@ -10,7 +10,7 @@ class EncryptTest < Minitest::Test
 
   def test_rotate_message_according_to_offsets
     encrypted = Encrypt.new("hello", 123456)
-    assert_equal [8, 6, 14, 15, 19], encrypted.rotate_message([1, 2, 3, 4, 5])
+    assert_equal [8, 6, 14, 15, 15], encrypted.rotate_message([1, 2, 3, 4, 5])
   end
 
 end
