@@ -5,9 +5,9 @@ require_relative '../lib/enigma'
 class EngimaTest < Minitest::Test
   def test_it_encrypts_correctly
     e = Engima.new
-    my_message = "this is so scret ..end.."
+    my_message = "this is so secret ..end.."
     output = e.encrypt(my_message)
-    assert_equal "lsdjfsdllsdfjls", output
+    assert_equal "ypnycqxdxwcyjkwkyfdejvied", output
   end
 
   def test_decrypt_works_correctly

@@ -9,7 +9,8 @@ class Engima
   end
 
   def encrypt(message)
-    @encryption = Encrypt.new(message, @offsets)
+    encryption = Encrypt.new(message, @offsets.last_four_digits)
+    encryption.encrypted
   end
 
   def decrypt(output)
