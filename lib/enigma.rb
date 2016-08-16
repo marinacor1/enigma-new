@@ -1,3 +1,6 @@
+require_relative 'key_generator'
+require_relative 'offset'
+require_relative 'encrypt'
 class Engima
 
   def initialize
