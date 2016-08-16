@@ -1,7 +1,7 @@
 require 'pry'
-require_relative 'character_map'
+require_relative 'encryption_tools'
 class Encrypt
-  include CharacterMap
+  include EncryptionTools
   attr_accessor :converted, :encrypted
 
   def initialize(message, offsets)
@@ -19,10 +19,6 @@ class Encrypt
 
   def rotate_message(offsets) #[7, 4, 11, 11, 14]
     offset_message = []
-    rotation_as = [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40]
-    rotation_bs = [1, 5, 9, 13, 17, 21, 25, 29, 33, 37, 41]
-    rotation_cs = [2, 6, 10, 14, 18, 22, 26, 30, 34, 38, 42]
-    rotation_ds = [3, 7, 11, 15, 19, 23, 27, 31, 35, 39, 43]
     @converted.each_with_index do |number, index|
       if rotation_as.include?(index)
         offset_message << (number + offsets[0].to_i)
