@@ -1,7 +1,9 @@
 require_relative 'key_generator'
 require_relative 'offset'
 require_relative 'encrypt'
-class Engima
+require_relative 'decrypt'
+
+class Enigma
 
   def initialize
     @key = KeyGenerator.new
@@ -13,8 +15,8 @@ class Engima
     encryption.encrypted
   end
 
-  def decrypt(output)
-    @decryption = Decrypt.new(output)
+  def decrypt(output, offsets)
+    @decryption = Decrypt.new(output, offsets)
   end
 
   def crack(output)
