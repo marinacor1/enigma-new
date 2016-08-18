@@ -1,5 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
+require_relative "../lib/offset"
 require_relative '../lib/enigma'
 
 class EnigmaTest < Minitest::Test
@@ -13,8 +14,9 @@ class EnigmaTest < Minitest::Test
   def test_decrypt_works_correctly
     e = Enigma.new
     output = "2s4xhtcd1zuxnnbj2jvenyzei"
+    offsets = Offset.new
     #need to rethink how key gets passed in
-    decrypted = e.decrypt(output, "12345") #date is optional
+    decrypted = e.decrypt(output, "12345", offsets) #date is optional
     assert_equal "this is so secret ..end..", decrypted
   end
 

@@ -16,7 +16,7 @@ class Enigma
     encryption.encrypted
   end
 
-  def decrypt(output, offsets)
+  def decrypt(output, key, offsets)
     decryption = Decrypt.new(output, key, offsets_info)
     decryption.decrypted
   end
