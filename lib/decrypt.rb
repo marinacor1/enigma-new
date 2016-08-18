@@ -1,5 +1,6 @@
 require_relative 'encrypt'
 require_relative 'encryption_tools'
+require_relative 'key_generator'
 require 'pry'
 
 class Decrypt
@@ -8,7 +9,7 @@ class Decrypt
 
   def initialize(output, key, offsets)
     numbers = convert_to_numbers(output)
-    # values = addOffsetsAndKey(offsets, key)
+    # @values = addOffsetsAndKey(offsets, KeyGenerator.new)
     @values = {"a"=>9, "b"=>49, "c"=>22, "d"=>81}
     reset_numbers = revert_back(numbers)
     @decrypted = numbers_to_text(reset_numbers)
@@ -22,10 +23,13 @@ class Decrypt
 
   def revert_back(numbers)
     @reverted = []
-    numbers.each do |num|
-      if rotation_as.include?(new_num('a', num))
-      elsif rotation_bs.include?(new_num('b', num))
-      elsif rotation_cs.include?(new_num('c', num))
+    numbers.each_with_index do |num, index|
+      if rotation_as.include?(index)
+        new_num('a', num)
+      elsif rotation_bs.include?(index)
+        new_num('b', num)
+      elsif rotation_cs.include?(index)
+        new_num('c', num)
       else
         new_num('d', num)
       end
@@ -33,10 +37,10 @@ class Decrypt
     @reverted
   end
 
-  def new_num(letter, num)
+  def new_num(letter, num) #19
     new_num = num - @values[letter]
     if (new_num) < 0
-      new_num = 38 + (new_num) #-13
+      new_num = 38 + (new_num)
     end
     @reverted << (new_num)%38
   end
