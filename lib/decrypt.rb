@@ -13,7 +13,7 @@ class Decrypt
   end
 
   def convert_to_numbers(output)
-    output.chars.map do |letter|
+    new = output.chars.map do |letter|
       character_map.index(letter)
     end
   end

@@ -8,7 +8,7 @@ class KeyGenerator
   def random_key
     key = []
     key = [rand(0..9), rand(0..9), rand(0..9), rand(0..9), rand(0..9)]
-    key.join
+    key.join.to_i
   end
 
 end

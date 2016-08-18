@@ -18,6 +18,7 @@ class Encrypt
   end
 
   def rotate_message(offsets) #[7, 4, 11, 11, 14]
+    binding.pry
     offset_message = []
     @converted.each_with_index do |number, index|
       if rotation_as.include?(index)
