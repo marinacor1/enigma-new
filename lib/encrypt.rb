@@ -19,17 +19,17 @@ class Encrypt
     end
   end
 
-  def rotate_message(values) #[7, 4, 11, 11, 14]
+  def rotate_message(values) #{"a"=>9, "b"=>49, "c"=>22, "d"=>81}
     offset_message = []
     @converted.each_with_index do |number, index|
       if rotation_as.include?(index)
-        offset_message << (number + values['a'])
+        offset_message << (number + values['a'])%38
       elsif rotation_bs.include?(index)
-        offset_message << (number + values['b'])
+        offset_message << (number + values['b'])%38
       elsif rotation_cs.include?(index)
-        offset_message << (number + values['c'])
+        offset_message << (number + values['c'])%38
       else
-        offset_message << (number + values['d'])
+        offset_message << (number + values['d'])%38
       end
     end
     offset_message
@@ -37,11 +37,7 @@ class Encrypt
 
   def number_to_text(offset_message)
     encrypted = offset_message.map do |number|
-      if number < 39
-        character_map[number]
-      else
         character_map[number%39]
-      end
     end
     encrypted.join
   end

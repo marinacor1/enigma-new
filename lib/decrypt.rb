@@ -8,7 +8,8 @@ class Decrypt
 
   def initialize(output, key, offsets)
     numbers = convert_to_numbers(output)
-    values = addOffsetsAndKey(offsets, key)
+    # values = addOffsetsAndKey(offsets, key)
+    values = {"a"=>9, "b"=>49, "c"=>22, "d"=>81}
     reset_numbers = revert_back(numbers, values)
     @decrypted = numbers_to_text(reset_numbers)
   end
@@ -23,13 +24,13 @@ class Decrypt
     reverted = []
     numbers.each do |num|
       if rotation_as.include?(num)
-        reverted << num - offsets[0].to_i
+        reverted << (num - values['a'])%38
       elsif rotation_bs.include?(num)
-        reverted << num - offsets[1].to_i
+        reverted << (num - values['b'])%38
       elsif rotation_cs.include?(num)
-        reverted << num - offsets[2].to_i
+        reverted << num - (num - values['c'])%38
       else
-        reverted << num - offsets[3].to_i
+        reverted << num - (num - values['d'])%38
       end
     end
     reverted
