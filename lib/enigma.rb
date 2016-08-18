@@ -17,7 +17,7 @@ class Enigma
 
   def decrypt(output, offsets)
     decryption = Decrypt.new(output, offsets)
-    decryption.decrypted.join('')
+    decryption.decrypted
   end
 
   def crack(output)

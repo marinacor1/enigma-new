@@ -35,8 +35,9 @@ class Decrypt
   end
 
   def numbers_to_text(reset_numbers)
-    reset_numbers.map do |num|
+    reset = reset_numbers.map do |num|
       character_map[num]
     end
+    reset.join
   end
 end
