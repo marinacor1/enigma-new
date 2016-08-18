@@ -1,7 +1,6 @@
 require_relative 'encrypt'
 require_relative 'encryption_tools'
 require_relative 'key_generator'
-require 'pry'
 
 class Decrypt
   include EncryptionTools
@@ -9,8 +8,8 @@ class Decrypt
 
   def initialize(output, key, offsets)
     numbers = convert_to_numbers(output)
-    # @values = addOffsetsAndKey(offsets, KeyGenerator.new)
-    @values = {"a"=>9, "b"=>49, "c"=>22, "d"=>81}
+    @values = addOffsetsAndKey(offsets, KeyGenerator.new)
+    # @values = {"a"=>9, "b"=>49, "c"=>22, "d"=>81}
     reset_numbers = revert_back(numbers)
     @decrypted = numbers_to_text(reset_numbers)
   end

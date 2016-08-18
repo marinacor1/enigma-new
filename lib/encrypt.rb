@@ -1,4 +1,3 @@
-require 'pry'
 require_relative 'encryption_tools'
 class Encrypt
   include EncryptionTools
@@ -6,8 +5,8 @@ class Encrypt
 
   def initialize(message, key, offsets)
     @converted = convert_message(message)
-    # values = addOffsetsAndKey(offsets,key)
-    values = {"a"=>9, "b"=>49, "c"=>22, "d"=>81}
+    values = addOffsetsAndKey(offsets,key)
+    # values = {"a"=>9, "b"=>49, "c"=>22, "d"=>81}
     offset_message = rotate_message(values)
     @encrypted = number_to_text(offset_message)
   end
