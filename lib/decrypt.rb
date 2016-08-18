@@ -6,9 +6,10 @@ class Decrypt
   include EncryptionTools
   attr_accessor :decrypted
 
-  def initialize(output, offsets)
+  def initialize(output, key, offsets)
     numbers = convert_to_numbers(output)
-    reset_numbers = revert_back(numbers, offsets)
+    values = addOffsetsAndKey(offsets, key)
+    reset_numbers = revert_back(numbers, values)
     @decrypted = numbers_to_text(reset_numbers)
   end
 
@@ -18,7 +19,7 @@ class Decrypt
     end
   end
 
-  def revert_back(numbers, offsets)
+  def revert_back(numbers, values)
     reverted = []
     numbers.each do |num|
       if rotation_as.include?(num)

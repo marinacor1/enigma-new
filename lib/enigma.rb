@@ -4,6 +4,7 @@ require_relative 'encrypt'
 require_relative 'decrypt'
 
 class Enigma
+  attr_accessor :key, :offsets
 
   def initialize
     @key = KeyGenerator.new
@@ -11,12 +12,12 @@ class Enigma
   end
 
   def encrypt(message)
-    encryption = Encrypt.new(message, @offsets.last_four_digits)
+    encryption = Encrypt.new(message, key, offsets)
     encryption.encrypted
   end
 
   def decrypt(output, offsets)
-    decryption = Decrypt.new(output, offsets)
+    decryption = Decrypt.new(output, key, offsets)
     decryption.decrypted
   end
 

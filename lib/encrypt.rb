@@ -4,9 +4,10 @@ class Encrypt
   include EncryptionTools
   attr_accessor :converted, :encrypted
 
-  def initialize(message, offsets)
+  def initialize(message, key, offsets)
     @converted = convert_message(message)
-    offset_message = rotate_message(offsets)
+    values = addOffsetsAndKey(offsets,key)
+    offset_message = rotate_message(values)
     @encrypted = number_to_text(offset_message)
   end
 
@@ -17,18 +18,17 @@ class Encrypt
     end
   end
 
-  def rotate_message(offsets) #[7, 4, 11, 11, 14]
-    binding.pry
+  def rotate_message(values) #[7, 4, 11, 11, 14]
     offset_message = []
     @converted.each_with_index do |number, index|
       if rotation_as.include?(index)
-        offset_message << (number + offsets[0].to_i)
+        offset_message << (number + values['a'])
       elsif rotation_bs.include?(index)
-        offset_message << (number + offsets[1].to_i)
+        offset_message << (number + values['b'])
       elsif rotation_cs.include?(index)
-        offset_message << (number + offsets[2].to_i)
+        offset_message << (number + values['c'])
       else
-        offset_message << (number + offsets[3].to_i)
+        offset_message << (number + values['d'])
       end
     end
     offset_message

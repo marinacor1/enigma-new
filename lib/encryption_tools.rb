@@ -23,5 +23,13 @@ module EncryptionTools
     [3, 7, 11, 15, 19, 23, 27, 31, 35, 39, 43]
   end
 
+  def addOffsetsAndKey(offsets, key)
+    values = Hash.new
+    values['a'] = offsets.a_offset.to_i + key.a_rotation.to_i
+    values['b'] = offsets.b_offset.to_i + key.b_rotation.to_i
+    values['c'] = offsets.c_offset.to_i + key.c_rotation.to_i
+    values['d'] = offsets.d_offset.to_i + key.d_rotation.to_i
+    values
+  end
 
 end
