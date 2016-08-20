@@ -5,7 +5,7 @@ class Encrypt
 
   def initialize(message, key, offsets)
     @converted = convert_message(message)
-    values = addOffsetsAndKey(offsets,key)
+    values = addOffsetsAndKey(offsets, key)
     # values = {"a"=>9, "b"=>49, "c"=>22, "d"=>81}
     offset_message = rotate_message(values)
     @encrypted = number_to_text(offset_message)
@@ -39,5 +39,6 @@ class Encrypt
         character_map[number%39]
     end
     encrypted.join
+    binding.pry
   end
 end

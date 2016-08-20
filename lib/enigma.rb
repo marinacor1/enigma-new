@@ -11,8 +11,8 @@ class Enigma
     @offsets_info = Offset.new
   end
 
-  def encrypt(message)
-    encryption = Encrypt.new(message, key, offsets_info)
+  def encrypt(message, key, offsets)
+    encryption = Encrypt.new(message, key, offsets)
     encryption.encrypted
   end
 
