@@ -29,6 +29,7 @@ module EncryptionTools
     values['b'] = offsets.b_offset.to_i + key.b_rotation.to_i
     values['c'] = offsets.c_offset.to_i + key.c_rotation.to_i
     values['d'] = offsets.d_offset.to_i + key.d_rotation.to_i
+    binding.pry
     values
   end
 

@@ -39,6 +39,5 @@ class Encrypt
         character_map[number%39]
     end
     encrypted.join
-    binding.pry
   end
 end
