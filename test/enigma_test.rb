@@ -12,15 +12,7 @@ class EnigmaTest < Minitest::Test
     output = e.encrypt(my_message, key, e.offsets_info)
     decrypted = e.decrypt(output, key, e.offsets_info) #date is optional
     assert_equal "this is so secret ..end..", decrypted
-
   end
-
-  # def test_decrypt_works_correctly
-  #   e = Enigma.new
-  #   output = "2s4xhtcd1zuxnnbj2jvenyzei"
-  #   decrypted = e.decrypt(output, "12345", offsets) #date is optional
-  #   assert_equal "this is so secret ..end..", decrypted
-  # end
 
   def test_crack_works_correctly
     skip
