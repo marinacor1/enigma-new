@@ -23,7 +23,6 @@ class Decrypt
   def revert_back(numbers)
     @reverted = []
     numbers.each_with_index do |num, index|
-      binding.pry
       if rotation_as.include?(index)
         new_num('a', num)
       elsif rotation_bs.include?(index)
@@ -46,7 +45,6 @@ class Decrypt
   end
 
   def numbers_to_text
-    binding.pry
     reset = @reverted.map do |num|
       character_map[num]
     end
