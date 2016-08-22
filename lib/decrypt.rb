@@ -9,7 +9,6 @@ class Decrypt
   def initialize(output, key, offsets)
     numbers = convert_to_numbers(output)
     @values = addOffsetsAndKey(offsets, key)
-    # @values = {"a"=>9, "b"=>49, "c"=>22, "d"=>81}
     revert_back(numbers)
     @decrypted = numbers_to_text
   end

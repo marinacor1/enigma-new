@@ -6,7 +6,6 @@ class Encrypt
   def initialize(message, key, offsets)
     @converted = convert_message(message)
     values = addOffsetsAndKey(offsets, key)
-    # values = {"a"=>9, "b"=>49, "c"=>22, "d"=>81}
     offset_message = rotate_message(values)
     @encrypted = number_to_text(offset_message)
   end
@@ -18,7 +17,7 @@ class Encrypt
     end
   end
 
-  def rotate_message(values) #{"a"=>9, "b"=>49, "c"=>22, "d"=>81}
+  def rotate_message(values)
     offset_message = []
     @converted.each_with_index do |number, index|
       if rotation_as.include?(index)

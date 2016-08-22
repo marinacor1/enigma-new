@@ -17,10 +17,10 @@ class EnigmaTest < Minitest::Test
   def test_it_encrypt_and_decrypt_works_correctly_with_different_text
     e = Enigma.new
     key = e.key.key
-    my_message = "marina is awesome"
+    my_message = "marina is awesome1233"
     output = e.encrypt(my_message, key, e.offsets_info)
     decrypted = e.decrypt(output, key, e.offsets_info) #date is optional
-    assert_equal "marina is awesome", decrypted
+    assert_equal "marina is awesome1233", decrypted
   end
 
   def test_crack_works_correctly
