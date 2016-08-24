@@ -9,8 +9,8 @@ class EnigmaTest < Minitest::Test
     e = Enigma.new
     key = e.key.key
     my_message = "this is so secret ..end.."
-    output = e.encrypt(my_message, key, e.offsets_info)
-    decrypted = e.decrypt(output, key, e.offsets_info) #date is optional
+    output = e.encrypt(my_message, key, e.offsets_info.last_four_digits)
+    decrypted = e.decrypt(output, key, e.offsets_info.last_four_digits)
     assert_equal "this is so secret ..end..", decrypted
   end
 
@@ -18,8 +18,8 @@ class EnigmaTest < Minitest::Test
     e = Enigma.new
     key = e.key.key
     my_message = "marina is awesome1233"
-    output = e.encrypt(my_message, key, e.offsets_info)
-    decrypted = e.decrypt(output, key, e.offsets_info) #date is optional
+    output = e.encrypt(my_message, key, e.offsets_info.last_four_digits)
+    decrypted = e.decrypt(output, key, e.offsets_info.last_four_digits) #date is optional
     assert_equal "marina is awesome1233", decrypted
   end
 

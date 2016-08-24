@@ -25,10 +25,11 @@ module EncryptionTools
 
   def addOffsetsAndKey(offsets, key)
     values = Hash.new
-    values['a'] = offsets.a_offset.to_i + (key[0] + key[1]).to_i
-    values['b'] = offsets.b_offset.to_i + (key[1] + key[2]).to_i
-    values['c'] = offsets.c_offset.to_i + (key[2] + key[3]).to_i
-    values['d'] = offsets.d_offset.to_i + (key[4] + key[-1]).to_i
+    binding.pry
+    values['a'] = offsets[0].to_i + (key[0] + key[1]).to_i
+    values['b'] = offsets[0].to_i + (key[1] + key[2]).to_i
+    values['c'] = offsets[0].to_i + (key[2] + key[3]).to_i
+    values['d'] = offsets[0].to_i + (key[4] + key[-1]).to_i
     values
   end
 

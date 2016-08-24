@@ -18,10 +18,7 @@ class OffsetTest < Minitest::Test
 
   def test_four_offsets_are_organized
     offset = Offset.new
-    assert_equal 1, offset.a_offset.length
-    assert_equal 1, offset.b_offset.length
-    assert_equal 1, offset.c_offset.length
-    assert_equal 1, offset.d_offset.length  
+    assert_equal 4, offset.last_four_digits.length
   end
 
 end
