@@ -15,7 +15,6 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_encrypt_changes_the_message
-    skip
     e = Enigma.new
     key = e.key.key
     my_message = "welcome to a secret"
@@ -25,7 +24,6 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_encrypt_and_decrypt_works_correctly_with_different_text
-    skip
     e = Enigma.new
     key = e.key.key
     my_message = "marina is awesome1233"
