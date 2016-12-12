@@ -18,4 +18,9 @@ class KeyGeneratorTest < MiniTest::Test
     assert_equal 5, keygenerator.key.length
   end
 
+  def test_key_generator_is_a_string
+    keygenerator = KeyGenerator.new
+    assert_equal String, keygenerator.key.class
+  end
+
 end

@@ -14,7 +14,18 @@ class EnigmaTest < Minitest::Test
     assert_equal "this is so secret ..end..", decrypted
   end
 
+  def test_encrypt_changes_the_message
+    skip
+    e = Enigma.new
+    key = e.key.key
+    my_message = "welcome to a secret"
+    output = e.encrypt(my_message, key, e.offsets_info.last_four_digits)
+    assert_equal my_message.length, output.length
+    assert_equal String, output.class
+  end
+
   def test_it_encrypt_and_decrypt_works_correctly_with_different_text
+    skip
     e = Enigma.new
     key = e.key.key
     my_message = "marina is awesome1233"
