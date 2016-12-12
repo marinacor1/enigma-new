@@ -33,9 +33,8 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_crack_works_correctly
-    skip
     e = Enigma.new
-    cracked = e.crack(output, Date.today) #date is optional
+    cracked = e.crack(Date.today) #date is optional
     assert_equal "this is so secret ..end..", cracked
   end
 end
